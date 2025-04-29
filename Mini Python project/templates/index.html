@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
+        <h2 class="text-2xl font-semibold text-gray-800 text-center mb-4">Password Generator</h2>
+        
+        <form method="POST" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 font-medium">Minimum Length:</label>
+                <input type="number" name="length" min="4" required
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div class="flex items-center">
+                <input type="checkbox" id="numbers" name="numbers"
+                    class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <label for="numbers" class="ml-2 text-gray-700">Include Numbers</label>
+            </div>
+
+            <div class="flex items-center">
+                <input type="checkbox" id="special" name="special"
+                    class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <label for="special" class="ml-2 text-gray-700">Include Special Characters</label>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition">
+                Generate Password
+            </button>
+        </form>
+
+        {% if password %}
+            <div class="mt-4 p-3 bg-gray-200 text-gray-900 font-bold rounded-lg text-center break-all">
+                {{ password }}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
